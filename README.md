@@ -1,6 +1,6 @@
 # Frontend Web Performance Optimization Demo
 
-This project demonstrates the performance impact of front-end optimization techniques such as code splitting, lazy loading, and caching using React.
+This project, built in React, demonstrates the performance impact of front-end optimization techniques such as code splitting, lazy loading, and caching.
 
 ---
 
@@ -9,7 +9,7 @@ This project demonstrates the performance impact of front-end optimization techn
 The goal of this project is to showcase how modern web performance optimization techniques can significantly improve user experience. It provides a practical comparison between:
 
 - An **unoptimized page**.
-- An **optimized page** that leverages various optimization strategies.
+- An **optimized page** that leverages various optimization strategies, as detailed below.
 
 ---
 
@@ -28,7 +28,7 @@ This demo implements the following optimization strategies:
 
 ## ⚙️ Technology Stack
 
-- React.js and TypeScript (for developing the app)
+- React.js + Vite and TypeScript (for developing the app)
 - Node.js (for the backend server)
 - Google Lighthouse and Web Vitals (for measuring performance)
 
@@ -48,7 +48,6 @@ This demo implements the following optimization strategies:
 
 Follow these steps to set up and run the project:
 
----
 
 ### **1. Clone the Repository**
 ```bash
@@ -56,7 +55,6 @@ git clone https://https://github.com/Elor-Itz/web-performance-optimization-demo.
 cd web-performance-optimization-demo
 ```
 
----
 
 ### **2. Install Dependencies**
 Install the dependencies for both the frontend and backend:
@@ -70,7 +68,6 @@ cd backend
 npm install
 ```
 
----
 
 ### **3. Run the Backend**
 Start the backend server:
@@ -80,7 +77,6 @@ npm run dev
 ```
 The backend will run on `http://localhost:3001` by default.
 
----
 
 ### **4. Run the Frontend**
 
@@ -105,14 +101,12 @@ To build and serve the frontend in production mode:
    ```
    The production build will be served on `http://localhost:3000` by default.
 
----
 
 ### **5. Access the Application**
 - **Frontend (Development Mode)**: `http://localhost:5173`
 - **Frontend (Production Mode)**: `http://localhost:3000`
 - **Backend API**: `http://localhost:3001`
 
----
 
 ### **6. Test the Application**
 - Navigate to the following pages in your browser:
@@ -120,5 +114,3 @@ To build and serve the frontend in production mode:
   - **Unoptimized Page**: `/baseline`
   - **Optimized Page**: `/optimized`
 - Use tools like **Google Lighthouse** to measure performance and see the difference.
-
----
