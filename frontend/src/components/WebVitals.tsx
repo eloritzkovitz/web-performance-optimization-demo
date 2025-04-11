@@ -1,20 +1,21 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { onCLS, onFID, onLCP, onFCP, onTTFB, Metric } from "web-vitals";
+import { onLCP, onINP, onCLS, onFCP, onTTFB } from "web-vitals";
+
 
 interface Metrics {
-  cls: number | null;
-  fid: number | null;
   lcp: number | null;
+  inp: number | null;
+  cls: number | null;
   fcp: number | null;
   ttfb: number | null;
 }
 
 const WebVitals = () => {
   const [metrics, setMetrics] = useState<Metrics>({
-    cls: null,
-    fid: null,
     lcp: null,
+    inp: null,
+    cls: null,
     fcp: null,
     ttfb: null,
   });
@@ -24,14 +25,14 @@ const WebVitals = () => {
   useEffect(() => {
     // Reset metrics when the route changes
     setMetrics({
-      cls: null,
-      fid: null,
       lcp: null,
+      inp: null,
+      cls: null,
       fcp: null,
       ttfb: null,
     });
 
-    const handleMetric = (metric: Metric) => {
+    const handleMetric = (metric: { name: string; value: number }) => {
       setMetrics((prevMetrics) => ({
         ...prevMetrics,
         [metric.name.toLowerCase()]: metric.value,
@@ -39,17 +40,17 @@ const WebVitals = () => {
     };
 
     // Re-measure Web Vitals metrics
-    onCLS(handleMetric);
-    onFID(handleMetric);
     onLCP(handleMetric);
+    onINP(handleMetric);
+    onCLS(handleMetric);
     onFCP(handleMetric);
     onTTFB(handleMetric);
 
     // Simulate a "page load" by triggering metrics manually
     const simulatePageLoad = () => {
-      onCLS(handleMetric);
-      onFID(handleMetric);
       onLCP(handleMetric);
+      onINP(handleMetric);
+      onCLS(handleMetric);
       onFCP(handleMetric);
       onTTFB(handleMetric);
     };
@@ -59,9 +60,9 @@ const WebVitals = () => {
     // Cleanup function to reset metrics when the component unmounts
     return () => {
       setMetrics({
-        cls: null,
-        fid: null,
         lcp: null,
+        inp: null,
+        cls: null,
         fcp: null,
         ttfb: null,
       });
@@ -73,13 +74,13 @@ const WebVitals = () => {
       <h2>Web Vitals Metrics</h2>
       <ul style={{ listStyleType: "none", padding: 0 }}>
         <li>
-          <strong>CLS:</strong> {metrics.cls !== null ? metrics.cls.toFixed(3) : "Loading..."}
+          <strong>LCP:</strong> {metrics.lcp !== null ? metrics.lcp.toFixed(3) : "Loading..."}
         </li>
         <li>
-          <strong>FID:</strong> {metrics.fid !== null ? `${metrics.fid.toFixed(2)} ms` : "Loading..."}
+          <strong>INP:</strong> {metrics.inp !== null ? `${metrics.inp.toFixed(2)} ms` : "Loading..."}
         </li>
         <li>
-          <strong>LCP:</strong> {metrics.lcp !== null ? `${metrics.lcp.toFixed(2)} ms` : "Loading..."}
+          <strong>CLS:</strong> {metrics.cls !== null ? `${metrics.cls.toFixed(2)} ms` : "Loading..."}
         </li>
         <li>
           <strong>FCP:</strong> {metrics.fcp !== null ? `${metrics.fcp.toFixed(2)} ms` : "Loading..."}

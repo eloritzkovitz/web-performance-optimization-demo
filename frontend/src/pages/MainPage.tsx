@@ -77,9 +77,36 @@ export default function MainPage({ children }: MainPageProps) {
                       <h1>Main Page</h1>
                       <div className="mb-4" />
                       <p>
-                        This demo showcases the difference between an unoptimized
-                        web page and one that has been enhanced with various
-                        optimization techniques: code splitting, lazy loading, cachiing, and more.
+                        Welcome to the <strong>Web Performance Optimization Demo</strong>. This application demonstrates the impact of various optimization techniques on web performance. You can explore the differences between an <strong>unoptimized page</strong> and an <strong>optimized page</strong> that leverages modern techniques such as:
+                      </p>
+                      <ul>
+                        <li><strong>Code Splitting:</strong> Breaking down JavaScript bundles into smaller chunks to load only what is needed.</li>
+                        <li><strong>Lazy Loading:</strong> Deferring the loading of non-critical resources until they are needed.</li>
+                        <li><strong>Caching:</strong> Storing frequently accessed resources to reduce network requests.</li>
+                        <li><strong>Text Compression:</strong> Minimizing the size of text-based resources using Brotli or Gzip.</li>
+                      </ul>
+                      <p>
+                        Additionally, this demo tracks key <strong>Web Vitals</strong> metrics to measure and improve user experience. Below is an explanation of the core Web Vitals parameters:
+                      </p>
+                      <ul>
+                        <li>
+                          <strong>Largest Contentful Paint (LCP):</strong> Measures the time it takes for the largest visible content (e.g., an image or text block) to load and render. A good LCP score is under <strong>2.5 seconds</strong>.
+                        </li>
+                        <li>
+                          <strong>Interaction to Next Paint (INP):</strong> Evaluates the responsiveness of the page by measuring the delay between user interactions (e.g., clicks, taps) and the next visual update. A good INP score is under <strong>200 milliseconds</strong>.
+                        </li>
+                        <li>
+                          <strong>Cumulative Layout Shift (CLS):</strong> Measures the visual stability of the page by tracking unexpected layout shifts. A good CLS score is under <strong>0.1</strong>.
+                        </li>
+                        <li>
+                          <strong>First Contentful Paint (FCP):</strong> Measures the time it takes for the first piece of content (e.g., text, image) to appear on the screen. A good FCP score is under <strong>1.8 seconds</strong>.
+                        </li>
+                        <li>
+                          <strong>Time to First Byte (TTFB):</strong> Measures the time it takes for the server to respond to the initial request. A good TTFB score is under <strong>200 milliseconds</strong>.
+                        </li>
+                      </ul>
+                      <p>
+                        Use the navigation links on the left to explore the <strong>Unoptimized Page</strong> and the <strong>Optimized Page</strong>. Observe how these techniques improve performance and user experience.
                       </p>
                     </>
                   )}
