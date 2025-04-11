@@ -13,7 +13,7 @@ const ImageList: React.FC<ImageListProps> = ({ images, visibleImages }) => {
           key={index}
           src={src}
           alt={`Image ${index + 1}`}
-          loading="lazy" // Lazy load images
+          loading={index === 0 ? undefined : "lazy"} // Lazy load images except the first one
           width="1920"
           height="1080"
           style={{

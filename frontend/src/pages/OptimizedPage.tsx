@@ -1,6 +1,6 @@
 import React, { Suspense, useState, useEffect, useRef } from "react";
 import { fetchImages } from "../utils/imageUtils";
-import ImageList from "../components/ImageList"; // Import the new component
+import ImageList from "../components/ImageList";
 
 const LazyHeavyComponent = React.lazy(
   () => import("../components/HeavyComponent")
@@ -13,17 +13,29 @@ const OptimizedPage = () => {
   const loadMoreRef = useRef<HTMLDivElement | null>(null);
   const [showHeavy, setShowHeavy] = useState(false);
 
+  // Fetch image URLs from the backend
   useEffect(() => {
     const loadImages = async () => {
       setLoading(true);
       const data = await fetchImages("avif");
       setImages(data);
+
+      // Preload the first image (LCP image)
+      if (data.length > 0) {
+        const link = document.createElement("link");
+        link.rel = "preload";
+        link.as = "image";
+        link.href = data[0];
+        document.head.appendChild(link);
+      }
+
       setLoading(false);
     };
 
     loadImages();
   }, []);
-
+  
+  // Use Intersection Observer to load more images when the user scrolls
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
