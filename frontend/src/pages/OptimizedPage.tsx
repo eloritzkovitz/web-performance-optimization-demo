@@ -1,20 +1,18 @@
 import React, { Suspense, useState, useEffect, useRef } from "react";
 import { fetchImages } from "../utils/imageUtils";
+import ImageList from "../components/ImageList"; // Import the new component
 
-// Lazy load the HeavyComponent
 const LazyHeavyComponent = React.lazy(
   () => import("../components/HeavyComponent")
 );
 
-// OptimizedPage component
 const OptimizedPage = () => {
   const [images, setImages] = useState<string[]>([]);
   const [visibleImages, setVisibleImages] = useState(1);
-  const [loading, setLoading] = useState(true);  
-  const loadMoreRef = useRef<HTMLDivElement | null>(null); 
+  const [loading, setLoading] = useState(true);
+  const loadMoreRef = useRef<HTMLDivElement | null>(null);
   const [showHeavy, setShowHeavy] = useState(false);
 
-  // Fetch image URLs from the backend
   useEffect(() => {
     const loadImages = async () => {
       setLoading(true);
@@ -26,7 +24,6 @@ const OptimizedPage = () => {
     loadImages();
   }, []);
 
-  // Intersection Observer to load more images when scrolling
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -57,31 +54,10 @@ const OptimizedPage = () => {
         images and components.
       </p>
 
-      {/* Show loading spinner while fetching images */}
       {loading && <p>Loading images...</p>}
 
-      {/* Render all visible images with lazy loading */}
-      {!loading &&
-        Array.isArray(images) &&
-        images.slice(0, visibleImages).map((src, index) => (
-          <img
-            key={index}
-            src={src}
-            alt={`Image ${index + 1}`}
-            loading="lazy" // Lazy load images
-            width="1920"
-            height="1080"
-            style={{
-              width: "100%",
-              objectFit: "cover",
-              marginTop: "1rem",
-              borderRadius: "8px",
-              boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-            }}
-          />
-        ))}
+      {!loading && <ImageList images={images} visibleImages={visibleImages} />}
 
-      {/* Load more trigger */}
       {!loading && visibleImages < images.length && (
         <div
           ref={loadMoreRef}
@@ -98,7 +74,6 @@ const OptimizedPage = () => {
         </div>
       )}
 
-      {/* Button to load heavy content */}
       <button
         style={{ marginTop: "1rem" }}
         onClick={() => {
@@ -108,7 +83,6 @@ const OptimizedPage = () => {
         Load More Content
       </button>
 
-      {/* Lazy-loaded heavy component */}
       {showHeavy && (
         <Suspense fallback={<p>Loading heavy component...</p>}>
           <LazyHeavyComponent />
