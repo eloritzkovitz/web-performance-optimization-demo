@@ -9,7 +9,7 @@ const LazyHeavyComponent = React.lazy(
 // OptimizedPage component
 const OptimizedPage = () => {
   const [images, setImages] = useState<string[]>([]);
-  const [visibleImages, setVisibleImages] = useState(5);
+  const [visibleImages, setVisibleImages] = useState(1);
   const [loading, setLoading] = useState(true);  
   const loadMoreRef = useRef<HTMLDivElement | null>(null); 
   const [showHeavy, setShowHeavy] = useState(false);
@@ -32,7 +32,7 @@ const OptimizedPage = () => {
       (entries) => {
         const entry = entries[0];
         if (entry.isIntersecting) {
-          setVisibleImages((prev) => Math.min(prev + 5, images.length));
+          setVisibleImages((prev) => Math.min(prev + 1, images.length));
         }
       },
       { rootMargin: "100px", threshold: 0.1 }
@@ -68,7 +68,7 @@ const OptimizedPage = () => {
             key={index}
             src={src}
             alt={`Image ${index + 1}`}
-            loading="lazy"  // Lazy load images
+            loading="lazy" // Lazy load images
             width="1920"
             height="1080"
             style={{
