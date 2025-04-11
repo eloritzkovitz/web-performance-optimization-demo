@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { onLCP, onINP, onCLS, onFCP, onTTFB } from "web-vitals";
 
-
 interface Metrics {
   lcp: number | null;
   inp: number | null;
@@ -44,18 +43,7 @@ const WebVitals = () => {
     onINP(handleMetric);
     onCLS(handleMetric);
     onFCP(handleMetric);
-    onTTFB(handleMetric);
-
-    // Simulate a "page load" by triggering metrics manually
-    const simulatePageLoad = () => {
-      onLCP(handleMetric);
-      onINP(handleMetric);
-      onCLS(handleMetric);
-      onFCP(handleMetric);
-      onTTFB(handleMetric);
-    };
-
-    simulatePageLoad();
+    onTTFB(handleMetric);    
 
     // Cleanup function to reset metrics when the component unmounts
     return () => {
@@ -74,13 +62,13 @@ const WebVitals = () => {
       <h2>Web Vitals Metrics</h2>
       <ul style={{ listStyleType: "none", padding: 0 }}>
         <li>
-          <strong>LCP:</strong> {metrics.lcp !== null ? metrics.lcp.toFixed(3) : "Loading..."}
+          <strong>LCP:</strong> {metrics.lcp !== null ? `${metrics.lcp.toFixed(2)} ms` : "Loading..."}
         </li>
         <li>
           <strong>INP:</strong> {metrics.inp !== null ? `${metrics.inp.toFixed(2)} ms` : "Loading..."}
         </li>
         <li>
-          <strong>CLS:</strong> {metrics.cls !== null ? `${metrics.cls.toFixed(2)} ms` : "Loading..."}
+          <strong>CLS:</strong> {metrics.cls !== null ? metrics.cls.toFixed(2) : "Loading..."}
         </li>
         <li>
           <strong>FCP:</strong> {metrics.fcp !== null ? `${metrics.fcp.toFixed(2)} ms` : "Loading..."}
