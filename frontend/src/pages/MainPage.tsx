@@ -77,13 +77,14 @@ export default function MainPage({ children }: MainPageProps) {
                       <h1>Main Page</h1>
                       <div className="mb-4" />
                       <p>
-                        Welcome to the <strong>Web Performance Optimization Demo</strong>. This application demonstrates the impact of various optimization techniques on web performance. You can explore the differences between an <strong>unoptimized page</strong> and an <strong>optimized page</strong> that leverages modern techniques such as:
+                        Welcome to the <strong>Web Performance Optimization Demo</strong>. This application, written in TypeScript and React, demonstrates the impact of various optimization techniques on web performance. You can explore the differences between an <strong>unoptimized page</strong> and an <strong>optimized page</strong> that leverages modern techniques, such as:
                       </p>
                       <ul>
                         <li><strong>Code Splitting:</strong> Breaking down JavaScript bundles into smaller chunks to load only what is needed.</li>
                         <li><strong>Lazy Loading:</strong> Deferring the loading of non-critical resources until they are needed.</li>
                         <li><strong>Caching:</strong> Storing frequently accessed resources to reduce network requests.</li>
                         <li><strong>Text Compression:</strong> Minimizing the size of text-based resources using Brotli or Gzip.</li>
+                        <li><strong>New Image Formats:</strong> Replacing .jpg images with .avif - a modern, better compressed format.</li>
                       </ul>
                       <p>
                         Additionally, this demo tracks key <strong>Web Vitals</strong> metrics to measure and improve user experience. Below is an explanation of the core Web Vitals parameters:
