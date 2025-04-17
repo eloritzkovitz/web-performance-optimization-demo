@@ -2,16 +2,12 @@
 
 This project, built in React, demonstrates the performance impact of front-end optimization techniques such as code splitting, lazy loading, and caching.
 
----
-
 ## 📌 Purpose
 
 The goal of this project is to showcase how modern web performance optimization techniques can significantly improve user experience. It provides a practical comparison between:
 
 - An **unoptimized page**.
 - An **optimized page** that leverages various optimization strategies, as detailed below.
-
----
 
 ## 🚀 Optimization Techniques
 
@@ -24,15 +20,11 @@ This demo implements the following optimization strategies:
 - **Image Compression**: Using modern formats like AVIF for smaller, high-quality images.
 - **Text Compression**: Serving text-based resources with Brotli or Gzip compression.
 
----
-
 ## ⚙️ Technology Stack
 
 - React.js + Vite and TypeScript (for developing the app)
 - Node.js (for the backend server)
 - Google Lighthouse and Web Vitals (for measuring performance)
-
----
 
 ## 📊 Key Metrics
 
@@ -41,8 +33,6 @@ This demo implements the following optimization strategies:
 - **Cumulative Layout Shift (CLS):** Measures the visual stability of the page by tracking unexpected layout shifts. A good CLS score is under **0.1**.
 - **First Contentful Paint (FCP):** Measures the time it takes for the first piece of content (e.g., text, image) to appear on the screen. A good FCP score is under **1.8 seconds**.
 - **Time to First Byte (TTFB):** Measures the time it takes for the server to respond to the initial request. A good TTFB score is under **200 milliseconds**.                     
-
----
 
 ## 🔍 How to Run
 
