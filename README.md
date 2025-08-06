@@ -41,7 +41,7 @@ Follow these steps to set up and run the project:
 
 ### **1. Clone the Repository**
 ```bash
-git clone https://https://github.com/Elor-Itz/web-performance-optimization-demo.git
+git clone https://https://github.com/eloritzkovitz/web-performance-optimization-demo.git
 cd web-performance-optimization-demo
 ```
 
@@ -65,8 +65,7 @@ Start the backend server:
 cd backend
 npm run dev
 ```
-The backend will run on `http://localhost:3001` by default.
-
+The backend will run on `http://localhost:3000` by default.
 
 ### **4. Run the Frontend**
 
@@ -89,14 +88,15 @@ To build and serve the frontend in production mode:
    ```bash
    serve -s dist --single
    ```
-   The production build will be served on `http://localhost:3000` by default.
+   The production build will be served on `http://localhost:3000` by default*.
 
 
 ### **5. Access the Application**
 - **Frontend (Development Mode)**: `http://localhost:5173`
-- **Frontend (Production Mode)**: `http://localhost:3000`
-- **Backend API**: `http://localhost:3001`
+- **Frontend (Production Mode)**: `http://localhost:3001`*
+- **Backend API**: `http://localhost:3000`
 
+\* If following the steps as written above (in which the server is started first), it will run on port 3000 and the app will be served on port 3001. Serving the app first will reverse the ports.
 
 ### **6. Test the Application**
 - Navigate to the following pages in your browser:
