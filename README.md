@@ -1,15 +1,15 @@
-# Frontend Web Performance Optimization Demo
+# Web Performance Optimization Demo
 
-This project, built in React, demonstrates the performance impact of front-end optimization techniques such as code splitting, lazy loading, and caching.
+This project, written in TypeScript and built with React, Vite and Node.js, demonstrates the performance impact of front-end optimization techniques such as code splitting, lazy loading, and caching.
 
-## 📌 Purpose
+## Purpose
 
 The goal of this project is to showcase how modern web performance optimization techniques can significantly improve user experience. It provides a practical comparison between:
 
 - An **unoptimized page**.
 - An **optimized page** that leverages various optimization strategies, as detailed below.
 
-## 🚀 Optimization Techniques
+## Optimization Techniques
 
 This demo implements the following optimization strategies:
 
@@ -20,13 +20,13 @@ This demo implements the following optimization strategies:
 - **Image Compression**: Using modern formats like AVIF for smaller, high-quality images.
 - **Text Compression**: Serving text-based resources with Brotli or Gzip compression.
 
-## ⚙️ Technology Stack
+## Technology Stack
 
 - React.js + Vite and TypeScript (for developing the app)
 - Node.js (for the backend server)
 - Google Lighthouse and Web Vitals (for measuring performance)
 
-## 📊 Key Metrics
+## Key Metrics
 
 - **Largest Contentful Paint (LCP):** Measures the time it takes for the largest visible content (e.g., an image or text block) to load and render. A good LCP score is under **2.5 seconds**.
 - **Interaction to Next Paint (INP):** Evaluates the responsiveness of the page by measuring the delay between user interactions (e.g., clicks, taps) and the next visual update. A good INP score is under **200 milliseconds**.
@@ -34,17 +34,15 @@ This demo implements the following optimization strategies:
 - **First Contentful Paint (FCP):** Measures the time it takes for the first piece of content (e.g., text, image) to appear on the screen. A good FCP score is under **1.8 seconds**.
 - **Time to First Byte (TTFB):** Measures the time it takes for the server to respond to the initial request. A good TTFB score is under **200 milliseconds**.                     
 
-## 🔍 How to Run
+## How to Run
 
 Follow these steps to set up and run the project:
-
 
 ### **1. Clone the Repository**
 ```bash
 git clone https://https://github.com/eloritzkovitz/web-performance-optimization-demo.git
 cd web-performance-optimization-demo
 ```
-
 
 ### **2. Install Dependencies**
 Install the dependencies for both the frontend and backend:
@@ -57,7 +55,6 @@ npm install
 cd backend
 npm install
 ```
-
 
 ### **3. Run the Backend**
 Start the backend server:
